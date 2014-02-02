@@ -15,7 +15,7 @@ bool SwipeRightLeftGesture::isStartingPosition (ScreenPoint currentPosition)
 
 bool SwipeRightLeftGesture::isStillValid (ScreenPoint currentPosition)
 {
-	if (currentPosition.x >= (prevPosition.x - 30) )
+	if (currentPosition.x <= (prevPosition.x + 30) )
 	{
 		return true;
 	}
@@ -25,7 +25,7 @@ bool SwipeRightLeftGesture::isStillValid (ScreenPoint currentPosition)
 
 bool SwipeRightLeftGesture::isFinishPosition (ScreenPoint currentPosition)
 {
-	if (currentPosition.x >= 40 && currentPosition.x <= 90)
+	if (currentPosition.x >= 40 && currentPosition.x <= 190)
 	{
 		//if (currentPosition.y >= 130 && currentPosition.y <= 190)
 		//{

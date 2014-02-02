@@ -14,6 +14,7 @@
 #include "BaseGesture.hpp"
 #include "SwipeLeftRightGesture.hpp"
 #include "SwipeRightLeftGesture.hpp"
+#include "XFakeKey.cpp"
 using namespace cv;
 using namespace std;
 
@@ -366,6 +367,7 @@ int main(){
 			if ( gs == FINISHED)
 			{
 				cout << gestures[currentGestureId]->getGestureCode() << " Finished." << endl;
+				action_trigger(gestures[currentGestureId]->getGestureCode());
 				currentGestureId = -1;
 			}
 			else if ( gs == TRACKING_NOTVALID )
