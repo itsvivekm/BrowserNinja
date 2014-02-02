@@ -46,7 +46,7 @@ then
   for i in `seq 1 5` 
   do
     xte 'key Up'
-    sleep 0.02
+    #sleep 0.02
   done
 
 elif [ $1 -eq 6 ] # SCROLL Page DOWN
@@ -54,7 +54,7 @@ then
   for i in `seq 1 5` 
   do
     xte 'key Down'
-    sleep 0.02
+    #sleep 0.02
   done
 
 else

@@ -16,6 +16,7 @@
 #include "SwipeRightLeftGesture.hpp"
 #include "XFakeKey.cpp"
 #include "ScrollDownGesture.hpp"
+#include "ScrollUpGesture.hpp"
 
 using namespace cv;
 using namespace std;
@@ -208,8 +209,8 @@ void produceBinaries(MyImage *m){
 }
 
 void initWindows(MyImage m){
-    namedWindow("trackbars",CV_WINDOW_KEEPRATIO);
-    namedWindow("img1",CV_WINDOW_FULLSCREEN);
+    namedWindow("trackbars",CV_WINDOW_NORMAL);
+    namedWindow("img1",CV_WINDOW_NORMAL);
 }
 
 void showWindows(MyImage m){
@@ -312,6 +313,7 @@ void initGestures(vector<BaseGesture *> &gestures)
 	gestures.push_back(new SwipeLeftRightGesture());
 	gestures.push_back(new SwipeRightLeftGesture());
 	gestures.push_back(new ScrollDownGesture());
+	gestures.push_back(new ScrollUpGesture());
 }
 
 int main(){

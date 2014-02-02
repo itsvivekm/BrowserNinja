@@ -4,7 +4,7 @@ bool ScrollDownGesture::isStartingPosition (ScreenPoint currentPosition, int num
 {
 	if (currentPosition.x >= 150 && currentPosition.x <= 490)
 	{
-		if (currentPosition.y >= 360 && currentPosition.y <= 480)
+		if (currentPosition.y >= 300 && currentPosition.y <= 480)
 		{
 			return true;
 		}

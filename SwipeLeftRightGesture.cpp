@@ -30,7 +30,7 @@ bool SwipeLeftRightGesture::isStillValid (ScreenPoint currentPosition, int numbe
 
 bool SwipeLeftRightGesture::isFinishPosition (ScreenPoint currentPosition, int numberOfFingers)
 {
-	if (currentPosition.x > 490 && currentPosition.x <= 640)
+	if (currentPosition.x >= 150 && currentPosition.x <= 490)
 	{
 		if (currentPosition.y >= 0 && currentPosition.y <= 480)
 		{
