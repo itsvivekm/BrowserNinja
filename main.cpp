@@ -15,6 +15,8 @@
 #include "SwipeLeftRightGesture.hpp"
 #include "SwipeRightLeftGesture.hpp"
 #include "XFakeKey.cpp"
+#include "ScrollDownGesture.hpp"
+
 using namespace cv;
 using namespace std;
 
@@ -207,12 +209,9 @@ void produceBinaries(MyImage *m){
 
 void initWindows(MyImage m){
     namedWindow("trackbars",CV_WINDOW_KEEPRATIO);
-    //namedWindow("img1",CV_WINDOW_FULLSCREEN);
-	
-	namedWindow("img1", CV_WINDOW_NORMAL);
-	setWindowProperty("img1", CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
+    namedWindow("img1",CV_WINDOW_FULLSCREEN);
 }
-zz
+
 void showWindows(MyImage m){
 	pyrDown(m.bw,m.bw);
 	pyrDown(m.bw,m.bw);
@@ -312,15 +311,16 @@ void initGestures(vector<BaseGesture *> &gestures)
 {
 	gestures.push_back(new SwipeLeftRightGesture());
 	gestures.push_back(new SwipeRightLeftGesture());
+	gestures.push_back(new ScrollDownGesture());
 }
 
 int main(){
 	MyImage m(0);		
 	HandGesture hg;
-	init(&m);		
+	init(&m);	
 	m.cap >>m.src;
     namedWindow("img1",CV_WINDOW_KEEPRATIO);
-	out.open("out.avi", CV_FOURCC('M', 'J', 'P', 'G'), 15, m.src.size(), true);
+	//out.open("out.avi", CV_FOURCC('M', 'J', 'P', 'G'), 15, m.src.size(), true);
 	waitForPalmCover(&m);
 	average(&m);
 	destroyWindow("img1");
@@ -328,7 +328,7 @@ int main(){
 	initTrackbars();
 	vector<BaseGesture *> gestures;
 	initGestures(gestures);
-	int currentGestureId = -1;
+	int currentGestureId  = -1;
 
 	for(;;){
 		hg.frameNumber++;
@@ -344,7 +344,7 @@ int main(){
 		showWindows(m);
 		out << m.src;
 
-		cout<< "Yposition : " << hg.highestPoint.y << "Xposition: " << hg.highestPoint.x << endl;
+		//cout<< "Yposition : " << hg.highestPoint.y << "Xposition: " << hg.highestPoint.x << endl;
 		ScreenPoint p;
 		p.x = hg.highestPoint.x;
 		p.y = hg.highestPoint.y;

@@ -4,9 +4,9 @@ bool ScrollDownGesture::isStartingPosition (ScreenPoint currentPosition, int num
 {
 	if(numberOfFingers <= 2)
 	{
-		if (currentPosition.x >= 0 && currentPosition.x <= 500)
+		if (currentPosition.x >= 150 && currentPosition.x <= 490)
 		{
-			if (currentPosition.y >= 190)
+			if (currentPosition.y >= 360 && currentPosition.y <= 480)
 			{
 				return true;
 			}
@@ -18,9 +18,12 @@ bool ScrollDownGesture::isStartingPosition (ScreenPoint currentPosition, int num
 
 bool ScrollDownGesture::isStillValid (ScreenPoint currentPosition, int numberOfFingers)
 {
-	if (currentPosition.x >= (prevPosition.x - 30) )
+	if (currentPosition.x >= 150 && currentPosition.x <= 490)
 	{
-		return true;
+		if (currentPosition.y >= 360 && currentPosition.y <= 480)
+		{
+			return true;
+		}
 	}
 
 	return false;
@@ -28,15 +31,15 @@ bool ScrollDownGesture::isStillValid (ScreenPoint currentPosition, int numberOfF
 
 bool ScrollDownGesture::isFinishPosition (ScreenPoint currentPosition, int numberOfFingers)
 {
-	if (currentPosition.x >= 350 && currentPosition.x <= 500)
+	if (currentPosition.x >= 150 && currentPosition.x <= 490)
 	{
-		//if (currentPosition.y >= 130 && currentPosition.y <= 190)
-		//{
-			return true;
-		//}
+		if (currentPosition.y >= 360 && currentPosition.y <= 480)
+		{
+			return false;
+		}
 	}
 
-	return false;
+	return true;
 }
 
 int ScrollDownGesture::getGestureCode ()

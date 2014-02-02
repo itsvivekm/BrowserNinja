@@ -5,7 +5,7 @@ using namespace std;
 
 gestureState BaseGesture::isGestureRecognized (ScreenPoint currentPosition)
 {
-    cout << "Current position: " << currentPosition.x << " " << currentPosition.y << endl;
+    //cout << "Current position: " << currentPosition.x << " " << currentPosition.y << endl;
 
     if (tracking == true)
     {
