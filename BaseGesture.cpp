@@ -9,18 +9,17 @@ gestureState BaseGesture::isGestureRecognized (ScreenPoint currentPosition)
 
     if (tracking == true)
     {
-        if (isStillValid(currentPosition) == true)
+        if (isFinishPosition(currentPosition) == true)
         {
-            if (isFinishPosition(currentPosition) == true)
-            {
-                tracking = false;
-                return FINISHED;
-            }
-
+            tracking = false;
+            return FINISHED;
+        }
+        else if (isStillValid(currentPosition) == true)
+        {
             prevPosition = currentPosition;
             return TRACKING_VALID;
         }
-
+        
         tracking = false;
         return TRACKING_NOTVALID;
     }
