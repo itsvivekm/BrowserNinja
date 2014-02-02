@@ -13,8 +13,7 @@
 #include "main.hpp"
 #include "BaseGesture.hpp"
 #include "SwipeLeftRightGesture.hpp"
-#include <XFakeKey.cpp>
-
+#include "SwipeRightLeftGesture.hpp"
 using namespace cv;
 using namespace std;
 
@@ -69,8 +68,8 @@ void waitForPalmCover(MyImage* m){
 	roi.push_back(My_ROI(Point(m->src.cols/2.5, m->src.rows/2.5),Point(m->src.cols/2.5+square_len,m->src.rows/2.5+square_len),m->src));
 	roi.push_back(My_ROI(Point(m->src.cols/2, m->src.rows/1.5),Point(m->src.cols/2+square_len,m->src.rows/1.5+square_len),m->src));
 	roi.push_back(My_ROI(Point(m->src.cols/2.5, m->src.rows/1.8),Point(m->src.cols/2.5+square_len,m->src.rows/1.8+square_len),m->src));
-	
-	
+
+
 	for(int i =0;i<50;i++){
     	m->cap >> m->src;
 		flip(m->src,m->src,1);
@@ -79,7 +78,7 @@ void waitForPalmCover(MyImage* m){
 		}
 		string imgText=string("Cover rectangles with palm");
 		printText(m->src,imgText);	
-		
+
 		if(i==30){
 		//	imwrite("./images/waitforpalm1.jpg",m->src);
 		}
@@ -244,8 +243,8 @@ void myDrawContours(MyImage *m,HandGesture *hg){
 	rectangle(m->src,hg->bRect.tl(),hg->bRect.br(),Scalar(0,0,200));
 	vector<Vec4i>::iterator d=hg->defects[hg->cIdx].begin();
 	int fontFace = FONT_HERSHEY_PLAIN;
-		
-	
+
+
 	vector<Mat> channels;
 		Mat result;
 		for(int i=0;i<3;i++)
@@ -254,7 +253,7 @@ void myDrawContours(MyImage *m,HandGesture *hg){
 	//	drawContours(result,hg->contours,hg->cIdx,cv::Scalar(0,200,0),6, 8, vector<Vec4i>(), 0, Point());
 		drawContours(result,hg->hullP,hg->cIdx,cv::Scalar(0,0,250),10, 8, vector<Vec4i>(), 0, Point());
 
-		
+
 	while( d!=hg->defects[hg->cIdx].end() ) {
    	    Vec4i& v=(*d);
 	    int startidx=v[0]; Point ptStart(hg->contours[hg->cIdx][startidx] );
@@ -269,8 +268,8 @@ void myDrawContours(MyImage *m,HandGesture *hg){
    		circle( m->src, ptStart,   4, Scalar(255,0,0), 2 );
 */
    		circle( result, ptFar,   9, Scalar(0,205,0), 5 );
-		
-		
+
+
 	    d++;
 
    	 }
@@ -308,6 +307,7 @@ void makeContours(MyImage *m, HandGesture* hg){
 void initGestures(vector<BaseGesture *> &gestures)
 {
 	gestures.push_back(new SwipeLeftRightGesture());
+	gestures.push_back(new SwipeRightLeftGesture());
 }
 
 int main(){
@@ -339,7 +339,7 @@ int main(){
 		hg.getFingerNumber(&m);
 		showWindows(m);
 		out << m.src;
-		
+
 		//cout<< "Yposition : " << hg.highestPoint.y << "Xposition: " << hg.highestPoint.x << endl;
 		ScreenPoint p;
 		p.x = hg.highestPoint.x;
@@ -366,9 +366,7 @@ int main(){
 			if ( gs == FINISHED)
 			{
 				cout << gestures[currentGestureId]->getGestureCode() << " Finished." << endl;
-                action_trigger(gestures[currentGestureId]->getGestureCode());
 				currentGestureId = -1;
-                
 			}
 			else if ( gs == TRACKING_NOTVALID )
 			{
