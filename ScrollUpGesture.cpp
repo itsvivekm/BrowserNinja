@@ -1,6 +1,6 @@
-#include "ScrollGestureUp.hpp"
+#include "ScrollUpGesture.hpp"
 
-bool ScrollGestureUp::isStartingPosition (ScreenPoint currentPosition, int numberOfFingers)
+bool ScrollUpGesture::isStartingPosition (ScreenPoint currentPosition, int numberOfFingers)
 {
 	if (numberOfFingers <= 2)
     {
@@ -16,7 +16,7 @@ bool ScrollGestureUp::isStartingPosition (ScreenPoint currentPosition, int numbe
 	return false;
 }
 
-bool ScrollGestureUp::isStillValid (ScreenPoint currentPosition, int numberOfFingers)
+bool ScrollUpGesture::isStillValid (ScreenPoint currentPosition, int numberOfFingers)
 {
 	if(numberOfFingers <= 2)
     {
@@ -32,7 +32,7 @@ bool ScrollGestureUp::isStillValid (ScreenPoint currentPosition, int numberOfFin
         return false;
 }
 
-bool ScrollGestureUp::isFinishPosition (ScreenPoint currentPosition, int numberOfFingers)
+bool ScrollUpGesture::isFinishPosition (ScreenPoint currentPosition, int numberOfFingers)
 {
 	if(numberOfFingers <= 2)
     {
@@ -48,7 +48,7 @@ bool ScrollGestureUp::isFinishPosition (ScreenPoint currentPosition, int numberO
 	return false;
 }
 
-int ScrollGestureUp::getGestureCode ()
+int ScrollUpGesture::getGestureCode ()
 {
 	return gestureCode;
 }

@@ -1,14 +1,14 @@
-#ifndef _SCROLLGESTUREUP_
-#define _SCROLLGESTUREUP_
+#ifndef _SCROLLUPGESTURE_
+#define _SCROLLUPGESTURE_
 
 #include "BaseGesture.hpp"
 
 using namespace std;
 
-class ScrollGestureUp : public BaseGesture
+class ScrollUpGesture : public BaseGesture
 {
 private:
-	const int gestureCode = 6;
+	const int gestureCode = 5;
     
 public:
 	bool isStartingPosition (ScreenPoint currentPosition, int numberOfFingers);
