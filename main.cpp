@@ -206,9 +206,12 @@ void produceBinaries(MyImage *m){
 
 void initWindows(MyImage m){
     namedWindow("trackbars",CV_WINDOW_KEEPRATIO);
-    namedWindow("img1",CV_WINDOW_FULLSCREEN);
+    //namedWindow("img1",CV_WINDOW_FULLSCREEN);
+	
+	namedWindow("img1", CV_WINDOW_NORMAL);
+	setWindowProperty("img1", CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
 }
-
+zz
 void showWindows(MyImage m){
 	pyrDown(m.bw,m.bw);
 	pyrDown(m.bw,m.bw);
