@@ -11,9 +11,9 @@ private:
 	const int gestureCode = 1;
 
 public:
-	bool isStartingPosition (ScreenPoint currentPosition);
-	bool isStillValid (ScreenPoint currentPosition);
-	bool isFinishPosition (ScreenPoint currentPosition);
+	bool isStartingPosition (ScreenPoint currentPosition, int numberOfFingers);
+	bool isStillValid (ScreenPoint currentPosition, int numberOfFingers);
+	bool isFinishPosition (ScreenPoint currentPosition, int numberOfFingers);
 	int getGestureCode ();
 
 };

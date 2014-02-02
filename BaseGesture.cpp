@@ -3,18 +3,18 @@
 
 using namespace std;
 
-gestureState BaseGesture::isGestureRecognized (ScreenPoint currentPosition)
+gestureState BaseGesture::isGestureRecognized (ScreenPoint currentPosition, int numberOfFingers)
 {
     cout << "Current position: " << currentPosition.x << " " << currentPosition.y << endl;
 
     if (tracking == true)
     {
-        if (isFinishPosition(currentPosition) == true)
+        if (isFinishPosition(currentPosition, numberOfFingers) == true)
         {
             tracking = false;
             return FINISHED;
         }
-        else if (isStillValid(currentPosition) == true)
+        else if (isStillValid(currentPosition, numberOfFingers) == true)
         {
             prevPosition = currentPosition;
             return TRACKING_VALID;
@@ -25,7 +25,7 @@ gestureState BaseGesture::isGestureRecognized (ScreenPoint currentPosition)
     }
     else
     {
-        if (isStartingPosition(currentPosition) == true)
+        if (isStartingPosition(currentPosition, numberOfFingers) == true)
         {
             prevPosition = currentPosition;
             tracking = true;
