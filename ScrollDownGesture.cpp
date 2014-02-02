@@ -2,14 +2,11 @@
 
 bool ScrollDownGesture::isStartingPosition (ScreenPoint currentPosition, int numberOfFingers)
 {
-	if(numberOfFingers <= 2)
+	if (currentPosition.x >= 150 && currentPosition.x <= 490)
 	{
-		if (currentPosition.x >= 150 && currentPosition.x <= 490)
+		if (currentPosition.y >= 360 && currentPosition.y <= 480)
 		{
-			if (currentPosition.y >= 360 && currentPosition.y <= 480)
-			{
-				return true;
-			}
+			return true;
 		}
 	}
 

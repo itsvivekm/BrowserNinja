@@ -43,7 +43,7 @@ then
 
 elif [ $1 -eq 5 ] # SCROLL Page UP
 then
-  for i in `seq 1 10` 
+  for i in `seq 1 5` 
   do
     xte 'key Up'
     sleep 0.02
@@ -51,7 +51,7 @@ then
 
 elif [ $1 -eq 6 ] # SCROLL Page DOWN
 then
-  for i in `seq 1 10` 
+  for i in `seq 1 5` 
   do
     xte 'key Down'
     sleep 0.02

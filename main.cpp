@@ -353,7 +353,7 @@ int main(){
 		{
 			for(currentGestureId = 0; currentGestureId < gestures.size(); currentGestureId++)
 			{
-				if (gestures[currentGestureId]->isGestureRecognized(p) == STARTED)
+				if (gestures[currentGestureId]->isGestureRecognized(p, 0) == STARTED)
 				{
 					cout << gestures[currentGestureId]->getGestureCode() << " Started." << endl;
 					break;
@@ -365,17 +365,26 @@ int main(){
 		}
 		else
 		{
-			gestureState gs = gestures[currentGestureId]->isGestureRecognized(p);
+			gestureState gs = gestures[currentGestureId]->isGestureRecognized(p, 0);
+			int gesCode = gestures[currentGestureId]->getGestureCode();
 
 			if ( gs == FINISHED)
 			{
-				cout << gestures[currentGestureId]->getGestureCode() << " Finished." << endl;
-				action_trigger(gestures[currentGestureId]->getGestureCode());
+				cout << gesCode << " Finished." << endl;
+				action_trigger(gesCode);
 				currentGestureId = -1;
+			}
+			else if( gs == TRACKING_VALID )
+			{
+				if(gesCode == 5 || gesCode == 6) 
+				{
+					cout << gesCode << " Valid." << endl;
+					action_trigger(gesCode);
+				}
 			}
 			else if ( gs == TRACKING_NOTVALID )
 			{
-				cout << gestures[currentGestureId]->getGestureCode() << " Not Valid." << endl;
+				cout << gesCode << " Not Valid." << endl;
 				currentGestureId = -1;
 			}
 		}
