@@ -1,5 +1,10 @@
 #include "SwipeLeftRightGesture.hpp"
 
+SwipeLeftRightGesture::SwipeLeftRightGesture()
+{
+	gestureCode = 1;
+}
+
 bool SwipeLeftRightGesture::isStartingPosition (ScreenPoint currentPosition, int numberOfFingers)
 {
 	if (numberOfFingers > 2)	

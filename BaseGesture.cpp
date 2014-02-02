@@ -3,6 +3,11 @@
 
 using namespace std;
 
+BaseGesture::BaseGesture ()
+{
+    tracking = false;
+}
+
 gestureState BaseGesture::isGestureRecognized (ScreenPoint currentPosition, int numberOfFingers)
 {
     cout << "Current position: " << currentPosition.x << " " << currentPosition.y << endl;
