@@ -1,10 +1,13 @@
 #include "SwipeRightLeftGesture.hpp"
 
-bool SwipeRightLeftGesture::isStartingPosition (ScreenPoint currentPosition)
+bool SwipeRightLeftGesture::isStartingPosition (ScreenPoint currentPosition,,int numberOfFingers)
 {
-	if (currentPosition.x >= 350 && currentPosition.x <= 500)
+	if (numberOfFingers > 3)
+		return false;
+		
+	if (currentPosition.x > 490 && currentPosition.x <= 640)
 	{
-		if (currentPosition.y >= 130 && currentPosition.y <= 190)
+		if (currentPosition.y > 120 && currentPosition.y < 360)
 		{
 			return true;
 		}
@@ -13,8 +16,11 @@ bool SwipeRightLeftGesture::isStartingPosition (ScreenPoint currentPosition)
 	return false;
 }
 
-bool SwipeRightLeftGesture::isStillValid (ScreenPoint currentPosition)
+bool SwipeRightLeftGesture::isStillValid (ScreenPoint currentPosition,int numberOfFingers)
 {
+	if (numberOfFingers > 3)
+		return false;
+		
 	if (currentPosition.x <= (prevPosition.x + 30) )
 	{
 		return true;
@@ -23,9 +29,11 @@ bool SwipeRightLeftGesture::isStillValid (ScreenPoint currentPosition)
 	return false;
 }
 
-bool SwipeRightLeftGesture::isFinishPosition (ScreenPoint currentPosition)
+bool SwipeRightLeftGesture::isFinishPosition (ScreenPoint currentPosition, int numberOfFingers)
 {
-	if (currentPosition.x >= 40 && currentPosition.x <= 190)
+	if (numberOfFingers > 3)
+		return false;
+	if (currentPosition.x > 150 && currentPosition.x < 0)
 	{
 		//if (currentPosition.y >= 130 && currentPosition.y <= 190)
 		//{

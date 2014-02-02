@@ -6,17 +6,19 @@
 class BaseGesture 
 {
 private:
-    bool tracking = false;
+    bool tracking;
 
 protected:
 	ScreenPoint prevPosition;
 
 public:
-    gestureState isGestureRecognized(ScreenPoint currentPosition);
+	BaseGesture ();
 
-    virtual bool isStartingPosition (ScreenPoint currentPosition) = 0;
-    virtual bool isStillValid (ScreenPoint currentPosition) = 0;
-    virtual bool isFinishPosition (ScreenPoint currentPosition) = 0;
+    gestureState isGestureRecognized(ScreenPoint currentPosition, int numberOfFingers);
+
+    virtual bool isStartingPosition (ScreenPoint currentPosition, int numberOfFingers) = 0;
+    virtual bool isStillValid (ScreenPoint currentPosition, int numberOfFingers) = 0;
+    virtual bool isFinishPosition (ScreenPoint currentPosition, int numberOfFingers) = 0;
     virtual int getGestureCode () = 0;
 };
 
