@@ -1,4 +1,4 @@
-#include "SwipeLeftRightGesture.hpp"
+#include "SwipeRightLeftGesture.hpp"
 
 bool SwipeRightLeftGesture::isStartingPosition (ScreenPoint currentPosition)
 {
