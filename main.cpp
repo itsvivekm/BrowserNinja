@@ -340,7 +340,7 @@ int main(){
 		showWindows(m);
 		out << m.src;
 
-		//cout<< "Yposition : " << hg.highestPoint.y << "Xposition: " << hg.highestPoint.x << endl;
+		cout<< "Yposition : " << hg.highestPoint.y << "Xposition: " << hg.highestPoint.x << endl;
 		ScreenPoint p;
 		p.x = hg.highestPoint.x;
 		p.y = hg.highestPoint.y;
