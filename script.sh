@@ -20,7 +20,19 @@ if xwininfo -id $(xprop -root | awk '/NET_ACTIVE_WINDOW/ { print $5; exit }') | 
 then
 	echo "found"
 else
-	wmctrl -a Chromium # GOTO Chromium
+    if wmctrl -a Chromium # GOTO Chromium
+    then
+        echo "focused"
+    else
+        Chromium
+
+        xte 'keydown Control_L' 'key T' 'keyup Control_L'
+        xte 'str http://www.hackeracademy.org/hackathon/index.html' 'key Return'
+
+        xte 'keydown Control_L' 'key T' 'keyup Control_L'
+        xte 'str http://theoatmeal.com/comics/bobcats_monday' 'key Return'
+
+    fi
 fi
 
 
@@ -46,7 +58,7 @@ then
   for i in `seq 1 5` 
   do
     xte 'key Up'
-    #sleep 0.02
+    sleep 0.01*i
   done
 
 elif [ $1 -eq 6 ] # SCROLL Page DOWN
@@ -54,7 +66,7 @@ then
   for i in `seq 1 5` 
   do
     xte 'key Down'
-    #sleep 0.02
+    sleep 0.01*i
   done
 
 else
