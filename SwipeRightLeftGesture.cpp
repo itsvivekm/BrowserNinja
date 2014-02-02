@@ -2,7 +2,7 @@
 
 bool SwipeRightLeftGesture::isStartingPosition (ScreenPoint currentPosition,,int numberOfFingers)
 {
-	if (numberOfFingers > 3)
+	if (numberOfFingers > 2)
 		return false;
 		
 	if (currentPosition.x > 490 && currentPosition.x <= 640)
@@ -18,7 +18,7 @@ bool SwipeRightLeftGesture::isStartingPosition (ScreenPoint currentPosition,,int
 
 bool SwipeRightLeftGesture::isStillValid (ScreenPoint currentPosition,int numberOfFingers)
 {
-	if (numberOfFingers > 3)
+	if (numberOfFingers > 2)
 		return false;
 		
 	if (currentPosition.x <= (prevPosition.x + 30) )
@@ -31,7 +31,7 @@ bool SwipeRightLeftGesture::isStillValid (ScreenPoint currentPosition,int number
 
 bool SwipeRightLeftGesture::isFinishPosition (ScreenPoint currentPosition, int numberOfFingers)
 {
-	if (numberOfFingers > 3)
+	if (numberOfFingers > 2)
 		return false;
 	if (currentPosition.x > 150 && currentPosition.x < 0)
 	{
