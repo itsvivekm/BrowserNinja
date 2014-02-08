@@ -1,14 +1,18 @@
-Wave
+Browser Ninja
 ====
 
-Hand Gesture Browser Control using OpenCV
+Control your browser using hand gestures through a webcam
 
-Hand Detection using Color Recognition
-=================================
+Youtube Video Link:	http://youtu.be/mof8nQ4mHEc
 
+
+
+Hand Detection using Color Recognition:
 Software to detect hand from videostream (webcam) and detect fingertips, number of fingers etc.
-The software is based on OpenCV, and is tested on Ubuntu 12.04 (both 32 and 64 bits) using both the 2.4.7 and 2.4.8 version 
+The software is based on OpenCV and C++, and is tested on Ubuntu 12.04 (both 32 and 64 bits) using both the 2.4.7 and 2.4.8 version 
 of OpenCV
+
+
 
 The software is compiled using the Makefile. Simply run 
 
