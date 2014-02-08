@@ -3,7 +3,7 @@ Browser Ninja
 
 Control your browser using hand gestures through a webcam
 
-Youtube Video Link:	http://youtu.be/mof8nQ4mHEc
+Youtube Video Link:	http://youtu.be/jA4ochPt9t4
 
 
 
